@@ -1,0 +1,14 @@
+<% levels = Array.new %>
+<% while !@users.empty? %>
+  <% u = @users.shift %>
+  <div style='padding-left: <%= "#{15*levels.count}" %>px;'><%= u.name%></div>
+
+  <% if levels.any? %>
+    <% levels.shift if (levels[0] -= 1) <= 0 %>
+  <% end %> 
+
+  <% o = u.offspring %>
+  <% @users = o + @users%>
+  <% levels = [o.count] + levels if o.count > 0 %>
+
+<% end %>

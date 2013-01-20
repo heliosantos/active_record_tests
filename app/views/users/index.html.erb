@@ -1,0 +1,8 @@
+<% @users.each do |u| %>
+  
+  <div class='user-name'><%= u.name %></div>
+  <% u.microposts.each do |m| %>
+    <div class='post-content'><%= m.content %></div>
+  <% end %>
+
+<% end %>
